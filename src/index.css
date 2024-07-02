@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -72,5 +74,90 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+    background-color: #00061a;
+    color: #fcfbe7;
   }
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #00061a;
+  color: #fcfbe7;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #00061a;
+  border: 1px solid #b45f06;
+  border-radius: 8px;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chat-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.chat-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #b45f06;
+  border-radius: 8px;
+  background-color: #00061a;
+}
+
+.chat-message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #b45f06;
+  color: #00061a;
+}
+
+.chat-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.chat-input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #b45f06;
+  border-radius: 8px;
+  background-color: #00061a;
+  color: #fcfbe7;
+}
+
+.chat-send-button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #b45f06;
+  color: #00061a;
+  cursor: pointer;
+}
+
+.chat-send-button:hover {
+  background-color: #fcfbe7;
+  color: #00061a;
 }
