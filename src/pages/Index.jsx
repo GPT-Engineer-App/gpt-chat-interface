@@ -11,6 +11,9 @@ const Index = () => {
       const message = JSON.parse(event.data);
       setMessages((prevMessages) => [...prevMessages, message]);
     };
+    ws.current.onerror = (error) => {
+      console.error('WebSocket error:', error);
+    };
     return () => {
       ws.current.close();
     };
@@ -18,8 +21,18 @@ const Index = () => {
 
   const sendMessage = () => {
     if (input.trim()) {
-      ws.current.send(JSON.stringify({ message: input }));
-      setInput('');
+      try {
+        ws.current.send(JSON.stringify({ message: input }));
+        setInput('');
+      } catch (error) {
+        console.error('Error sending message:', error);
+      }
+    }
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      sendMessage();
     }
   };
 
@@ -41,6 +54,7 @@ const Index = () => {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyPress={handleKeyPress}
           className="chat-input"
           placeholder="Type your message..."
         />
